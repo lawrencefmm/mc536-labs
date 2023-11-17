@@ -78,7 +78,7 @@ ON MATCH SET t.weight=t.weight+1
 ```
 
 ```cypher
-MATCH (d)-[t:Treats]->(p)
+MATCH (d)-[t:Causes]->(p)
 WHERE t.weight > 50
 RETURN d,p
 ```
