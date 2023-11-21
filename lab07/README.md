@@ -7,12 +7,16 @@
 * Lawrence Francisco Martins de Melo - 223480
 * Alexia Bettoni do Nascimento - 265670
 
-# Modelo lógico
+# Modelo Lógico do Banco de Dados de Grafos
 ![](1.png)
 ![](2.png)
 
-# Perguntas de análise
+# Perguntas de Pesquisa/Análise
 
-![](3.png)
+* Quais grupos alimentares estão mais presentes nas receitas.
+* Qual é o estado de comidas mais presente nas receitas?
+* Quais são as receitas mais consumidas pelas pessoas?
+* Qual é a comida presente em mais receitas?
+* Quais são os métodos de consumo mais utilizados nas receitas?
 
 
