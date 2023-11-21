@@ -11,6 +11,9 @@
 
 
 # Exercício 1
+Faça a projeção em relação a Patologia, ou seja, conecte patologias que são tratadas pela mesma droga.
+
+# Resolução
 Primeiro vamos inicializar o grafo
 ```cypher
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/santanche/lab2learn/master/data/faers-2017/drug.csv' AS line
@@ -55,6 +58,10 @@ RETURN p1, p2
 
 # Exercício 2
 
+Construa um grafo ligando os medicamentos aos efeitos colaterais (com pesos associados) a partir dos registros das pessoas, ou seja, se uma pessoa usa um medicamento e ela teve um efeito colateral, o medicamento deve ser ligado ao efeito colateral.
+
+# Resolução
+
 Precisamos importar os dados de `drug-use.csv`.
 
 ```cypher
@@ -84,3 +91,21 @@ RETURN d,p
 ```
 
 ![Relação entre drogas e efeitos colaterais.](colateral.png)
+
+# Exercício 3
+
+Que tipo de análise interessante pode ser feita com esse grafo?
+
+Proponha um tipo de análise e escreva uma sentença em Cypher que realize a análise.
+
+# Resolução
+
+Por meio dessa análise buscamos descobrir quais remédios apresentam efeitos colaterais iguais a doença que eles tratam, por isso ligamos os remédios e os efeitos/doenças buscando as que tem as duas relações simultaneamente.
+
+
+```cypher
+MATCH (d)-[t:Causes]->(p)
+MATCH (d)-[g.Treats]->(p)
+WHERE t.weight > 20 AND g.weight > 20
+RETURN d,p
+```
